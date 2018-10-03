@@ -28,8 +28,10 @@ def main(options):
 
     mon = Monitor(options.pid, options.file)
 
+    start = time.time()
+
     try:
-        while True:
+        while (time.time() - start <= options.time):
             mon.save()
             print(mon)
             time.sleep(0.1)
